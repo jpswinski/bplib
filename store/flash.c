@@ -573,7 +573,7 @@ BP_LOCAL_SCOPE int flash_object_delete(flash_store_t *fs, bp_sid_t sid)
     }
 
     /* Delete Each Page of Data */
-    bytes_left = flash_object_hdr->object_hdr.size;
+    bytes_left = sizeof(flash_object_hdr_t) + flash_object_hdr->object_hdr.size;
     while (bytes_left > 0)
     {
         /* Set Current Block */
